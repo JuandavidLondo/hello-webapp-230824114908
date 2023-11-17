@@ -24,7 +24,7 @@ jobs:
           cache: maven
       - name: Check if slot exists
         run: |
-          if az webapp deployment slot show --name despliegueloreyjuan --resource-group GestionConfiguracion --slot slot; then
+          if az webapp deployment slot show --name ${{ secrets.SLOT_NAME }} --resource-group ${{ secrets.SLOT_GROUP }} --slot slot; then
             echo "El slot existe."
           else
             echo "El slot no existe."
